@@ -19,8 +19,14 @@ def first_word word
 end
 
 def titleize word
-	title = ''
-	title = word.split.each {|x| x = x.to_s.capitialize }
-	return title
+    title = ''
+	#title = word.split.each {|x| x.capitalize!}.join ' '
+	word.capitalize!
+	title = word.split.each do |x|
+		if x != "the" && x != "and" && x != "over"
+			x.capitalize!
+        end
+	end
+   title = title.join ' '
 end
 
